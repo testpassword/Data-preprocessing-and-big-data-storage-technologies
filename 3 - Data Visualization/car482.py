@@ -30,12 +30,13 @@ for i, it in enumerate(records):
         records[i] = it._replace(car=((records[i - 1].car + records[i + 1].car) / 2))
 for r in records:
     counter = COUNTERS[r.line_type]
+    def change_and_swap(swap: bool):
+        counter['count'] += 1
+        counter['direction_is_swapped'] = swap
     if r.car > r.line and counter['direction_is_swapped'] == False:
-        counter['count'] = counter['count'] + 1
-        counter['direction_is_swapped'] = True
+        change_and_swap(True)
     if r.car < r.line and counter['direction_is_swapped'] == True:
-        counter['count'] = counter['count'] + 1
-        counter['direction_is_swapped'] = False
+        change_and_swap(False)
 print({k: v['count'] for k, v in COUNTERS.items()})
 
 
