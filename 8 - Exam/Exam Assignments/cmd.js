@@ -1,0 +1,1 @@
+db.NEURONET.findOne({ reference: 'WWDU06915' }).inceptiondate
