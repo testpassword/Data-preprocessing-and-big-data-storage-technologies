@@ -1,0 +1,2 @@
+// When does the insurance policy ("reference") XXAJ07403 expire ("expirydate")?
+db.NEURONET.find({ suminsured: { $lt: 119689.2 } }).sort({ insurancepremium:-1 }).limit(1).toArray()[0].insurancepremium
